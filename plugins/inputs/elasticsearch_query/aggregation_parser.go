@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/influxdata/telegraf"
-	elastic5 "gopkg.in/olivere/elastic.v5"
+	elastic5 "github.com/olivere/elastic/v7"
 )
 
 type resultMetric struct {

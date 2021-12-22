@@ -272,6 +272,7 @@ following works:
 - gopkg.in/ini.v1 [Apache License 2.0](https://github.com/go-ini/ini/blob/master/LICENSE)
 - gopkg.in/ldap.v3 [MIT License](https://github.com/go-ldap/ldap/blob/v3.1.7/LICENSE)
 - gopkg.in/olivere/elastic.v5 [MIT License](https://github.com/olivere/elastic/blob/v5.0.76/LICENSE)
++ github.com/olivere/elastic.v7 [MIT License](https://github.com/olivere/elastic/blob/v7.0.30/LICENSE)
 - gopkg.in/tomb.v1 [BSD 3-Clause Clear License](https://github.com/go-tomb/tomb/blob/v1/LICENSE)
 - gopkg.in/tomb.v2 [BSD 3-Clause Clear License](https://github.com/go-tomb/tomb/blob/v2/LICENSE)
 - gopkg.in/yaml.v2 [Apache License 2.0](https://github.com/go-yaml/yaml/blob/v2.2.2/LICENSE)

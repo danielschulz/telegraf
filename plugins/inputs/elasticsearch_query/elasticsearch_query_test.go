@@ -15,8 +15,8 @@ import (
 	"github.com/influxdata/telegraf"
 	"github.com/influxdata/telegraf/config"
 	"github.com/influxdata/telegraf/testutil"
+	elastic5 "github.com/olivere/elastic/v7"
 	"github.com/stretchr/testify/require"
-	elastic5 "gopkg.in/olivere/elastic.v5"
 )
 
 var (

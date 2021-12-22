@@ -199,7 +199,7 @@ clean:
 
 .PHONY: docker-image
 docker-image:
-	docker build -f scripts/buster.docker -t "telegraf:$(commit)" .
+	docker build -f scripts/ci-1.17.docker -t "telegraf:$(commit)" .
 
 plugins/parsers/influx/machine.go: plugins/parsers/influx/machine.go.rl
 	ragel -Z -G2 $^ -o $@

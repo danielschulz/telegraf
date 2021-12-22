@@ -12,7 +12,7 @@ import (
 	"time"
 
 	"crypto/sha256"
-	"gopkg.in/olivere/elastic.v5"
+	"github.com/olivere/elastic/v7"
 
 	"github.com/influxdata/telegraf"
 	"github.com/influxdata/telegraf/config"
@@ -111,7 +111,7 @@ var sampleConfig = `
 
 const telegrafTemplate = `
 {
-	{{ if (lt .Version 6) }}
+	{{ if (lt .Version 1) }}
 	"template": "{{.TemplatePattern}}",
 	{{ else }}
 	"index_patterns" : [ "{{.TemplatePattern}}" ],
@@ -125,12 +125,8 @@ const telegrafTemplate = `
 		}
 	},
 	"mappings" : {
-		{{ if (lt .Version 7) }}
 		"metrics" : {
-			{{ if (lt .Version 6) }}
 			"_all": { "enabled": false },
-			{{ end }}
-		{{ end }}
 		"properties" : {
 			"@timestamp" : { "type" : "date" },
 			"measurement_name" : { "type" : "keyword" }
@@ -173,9 +169,7 @@ const telegrafTemplate = `
 				}
 			}
 		]
-		{{ if (lt .Version 7) }}
 		}
-		{{ end }}
 	}
 }`
 
@@ -252,7 +246,7 @@ func (a *Elasticsearch) Connect() error {
 
 	// quit if ES version is not supported
 	majorReleaseNumber, err := strconv.Atoi(strings.Split(esVersion, ".")[0])
-	if err != nil || majorReleaseNumber < 5 {
+	if err != nil || majorReleaseNumber < 1 {
 		return fmt.Errorf("elasticsearch version not supported: %s", esVersion)
 	}
 
