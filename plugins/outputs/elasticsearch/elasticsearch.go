@@ -111,9 +111,6 @@ var sampleConfig = `
 
 const telegrafTemplate = `
 {
-	{{ if (lt .Version 1) }}
-	"template": "{{.TemplatePattern}}",
-	{{ else }}
 	"index_patterns" : [ "{{.TemplatePattern}}" ],
 	{{ end }}
 	"settings": {
@@ -125,8 +122,6 @@ const telegrafTemplate = `
 		}
 	},
 	"mappings" : {
-		"metrics" : {
-			"_all": { "enabled": false },
 		"properties" : {
 			"@timestamp" : { "type" : "date" },
 			"measurement_name" : { "type" : "keyword" }
@@ -169,7 +164,6 @@ const telegrafTemplate = `
 				}
 			}
 		]
-		}
 	}
 }`
 
